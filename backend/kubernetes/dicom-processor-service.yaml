@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dicom-processor-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dicom-processor-service
+  template:
+    metadata:
+      labels:
+        app: dicom-processor-service
+    spec:
+      containers:
+      - name: dicom-processor-service
+        image: ${REGISTRY}/dicom-processor-service:latest
+        ports:
+        - containerPort: 4002
+        env:
+        - name: PORT
+          value: "4002"
+        - name: STORAGE_TYPE
+          value: "cloud"
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /data/storage
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "400m"
+      volumes:
+      - name: storage-volume
+        persistentVolumeClaim:
+          claimName: storage-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dicom-processor-service
+spec:
+  selector:
+    app: dicom-processor-service
+  ports:
+  - port: 4002
+    targetPort: 4002
+  type: ClusterIP

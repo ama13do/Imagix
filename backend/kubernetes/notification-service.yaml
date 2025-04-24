@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+      - name: notification-service
+        image: ${REGISTRY}/notification-service:latest
+        ports:
+        - containerPort: 4005
+        env:
+        - name: PORT
+          value: "4005"
+        - name: NODE_ENV
+          value: "production"
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: uri
+        - name: PUSH_NOTIFICATIONS_PROVIDER
+          value: "fcm"
+        - name: PUSH_NOTIFICATIONS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: push-notifications-secret
+              key: api-key
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+spec:
+  selector:
+    app: notification-service
+  ports:
+  - port: 4005
+    targetPort: 4005
+  type: ClusterIP
