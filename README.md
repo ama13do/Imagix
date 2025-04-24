@@ -2,8 +2,8 @@
 Monorepo(Backend y frontend) de el previsualizador de imagenología para el track de salud digna
 # Plataforma de Previsualización DICOM Inclusiva para Comunidades Marginadas
 
-[![Licencia](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Contribuciones](https://img.shields.io/badge/Contribuciones-Bienvenidas-brightgreen.svg)](https://github.com/TU_USUARIO/TU_REPOSITORIO/CONTRIBUTING.md)
+
+[![Contribuciones](https://img.shields.io/badge/Contribuciones-Bienvenidas-brightgreen.svg)]((https://github.com/ama13do/Imagix))
 
 Esta plataforma innovadora ofrece una solución completa para la previsualización de imágenes DICOM (.dcm) y directorios DICOM (PACS/DICOMDIR), enfocándose en la accesibilidad y la inclusión para comunidades indígenas marginadas, personas con daltonismo, adultos mayores y personas con poca familiaridad con la tecnología digital. Nuestra aplicación multiplataforma busca ser intuitiva, amigable y promover una salud digna.
 
@@ -42,8 +42,8 @@ A continuación, se describen los comandos básicos para instalar las dependenci
 
 2.  **Clonar el repositorio:**
     ```bash
-    git clone TU_REPOSITORIO_WEB.git
-    cd TU_REPOSITORIO_WEB
+    git clone https://github.com/ama13do/Imagix.git
+    cd Imagix
     ```
 
 3.  **Instalar las dependencias:**
@@ -74,7 +74,7 @@ A continuación, se describen los comandos básicos para instalar las dependenci
     pnpm dev
     ```
 
-    La aplicación web estará disponible en `http://localhost:5173` (u otra dirección proporcionada por Vite).
+    La aplicación web estará disponible en `http://localhost:6000` (u otra dirección proporcionada por Vite).
 
 ### Flutter (Aplicación Móvil)
 
@@ -82,8 +82,8 @@ A continuación, se describen los comandos básicos para instalar las dependenci
 
 2.  **Clonar el repositorio:**
     ```bash
-    git clone TU_REPOSITORIO_MOVIL.git
-    cd TU_REPOSITORIO_MOVIL
+    git clone https://github.com/ama13do/Imagix/Imagix.git
+    cd Imagix
     ```
 
 3.  **Obtener las dependencias:**
@@ -145,15 +145,4 @@ Si bien el backend actual está en AWS, aquí te presentamos alternativas y coma
 
 **Nota:** Al igual que con AWS, estos son comandos y conceptos introductorios. Un despliegue completo en GCP requerirá una configuración más exhaustiva de la infraestructura, seguridad, redes, etc. Consulta la documentación oficial de Google Cloud para obtener detalles específicos.
 
-## Contribuciones
 
-Las contribuciones son bienvenidas. Por favor, revisa nuestro [CONTRIBUTING.md](https://github.com/TU_USUARIO/TU_REPOSITORIO/CONTRIBUTING.md) para obtener más detalles sobre cómo puedes ayudar.
-
-## Licencia
-
-Este proyecto está bajo la licencia [MIT](https://opensource.org/licenses/MIT). Consulta el archivo `LICENSE` para obtener más información.
-
-## Contacto
-
-[TU_NOMBRE] - [TU_CORREO_ELECTRÓNICO]
-[ENLACE_A_TU_PERFIL_DE_GITHUB]
