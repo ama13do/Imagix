@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/cornerstone-core"></script>
+  <script src="https://unpkg.com/cornerstone-wado-image-loader"></script>
+  <script src="https://unpkg.com/dicom-parser"></script>
+  <script>
+    cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+    cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
+
+    function loadDicom(file) {
+      const imageId = cornerstoneWADOImageLoader.wadouri.fileManager.add(file);
+      const element = document.getElementById('dicomCanvas');
+      cornerstone.enable(element);
+      cornerstone.loadImage(imageId).then((image) => {
+        cornerstone.displayImage(element, image);
+      });
+    }
+  </script>
+</head>
+<body>
+  <div id="dicomCanvas" style="width:512px;height:512px;"></div>
+</body>
+</html>
