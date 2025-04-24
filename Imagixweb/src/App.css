@@ -1,0 +1,401 @@
+/* App.css */
+:root {
+  --primary: #309f49;
+  --secondary: #41ae88;
+  --accent: #fbc213;
+  --light: #f7eed1;
+  --accent-secondary: #f08254;
+  --dark: #333;
+  --gray: #e0e0e0;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+  background-color: var(--primary);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.logo h1 {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background-color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-tabs button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 15px 0;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.sidebar-tabs button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-tabs button.tab-active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.patient-list h3, .studies-list h3, .dicomdir-browser h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: var(--light);
+}
+
+.patient-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.patient-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.patient-item.selected {
+  background-color: rgba(48, 159, 73, 0.2);
+  border-left: 3px solid var(--primary);
+}
+
+.patient-info h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.patient-info p {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 2px;
+}
+
+.load-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.load-button:hover {
+  background-color: var(--secondary);
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.toolbar {
+  background-color: var(--dark);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tool-group, .layout-group, .script-group {
+  display: flex;
+  gap: 5px;
+  margin-right: 20px;
+}
+
+.toolbar button {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--gray);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toolbar button.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.script-button {
+  background-color: var(--accent) !important;
+  color: var(--dark) !important;
+}
+
+.script-button:hover {
+  background-color: var(--accent-secondary) !important;
+}
+
+/* Viewer Container */
+.viewer-container {
+  flex: 1;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #1a1a1a;
+}
+
+.viewer-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 10px;
+}
+
+.grid-1x1 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.grid-1x2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.grid-2x2 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* Image Viewer */
+.image-viewer {
+  background-color: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.viewer-controls {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--light);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  user-select: none;
+  transition: filter 0.2s;
+}
+
+.image-info {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--light);
+  padding: 8px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Script Modal */
+.script-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.script-modal {
+  background-color: var(--dark);
+  width: 700px;
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.language-selector {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-selector button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.language-selector button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.language-selector button.selected {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  font-weight: bold;
+}
+
+.code-editor {
+  padding: 15px;
+  flex: 1;
+}
+
+.code-editor textarea {
+  width: 100%;
+  height: 300px;
+  background-color: #1a1a1a;
+  color: var(--light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: none;
+  border-radius: 4px;
+}
+
+.modal-footer {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.apply-button {
+  background-color: var(--accent);
+  color: var(--dark);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.apply-button:hover {
+  background-color: var(--accent-secondary);
+}
